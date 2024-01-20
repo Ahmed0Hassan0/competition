@@ -5,7 +5,7 @@ import os
 st.set_page_config(page_title='Competition', layout='wide')
 
 # Read data from Sheet 
-df = pd.read_excel('Africa 2024-.xlsx', sheet_name='data')
+df = pd.read_csv('Africa 2024-.csv')
 
 # Define the folder path for photos
 photos_folder = 'photos'
