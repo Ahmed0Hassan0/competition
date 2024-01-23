@@ -11,7 +11,18 @@ df = pd.read_csv('Africa 2024-.csv')
 photos_folder = 'photos'
 
 # Display images and results in the Streamlit app
-st.header('Competition Results', divider='rainbow')
+st.header('Competition Results')
+
+st.markdown("""
+<style>
+.rainbow-divider {
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    height: 2px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown('<div class="rainbow-divider"></div>', unsafe_allow_html=True)
 
 # Display contestant photos and results in the same row
 for index, row in df.iterrows():
