@@ -9,7 +9,7 @@ df_player = df_player.dropna()
 player_list = df_player['name'].unique()
 players = pd.DataFrame(player_list)
 
-
+st.sidebar.image('photos/logo2.jpg')
 st.sidebar.header('Select a player')
 add_selectbox = st.sidebar.selectbox(
     '',
