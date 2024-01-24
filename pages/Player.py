@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 st.set_page_config(page_title='Player statistics', page_icon='📈' ,layout='wide')
-
+st.balloons()
 df_player = pd.read_excel('Datasets/Africa 2024-.xlsx', sheet_name='التوقعات')
 df_player = df_player.dropna()
 player_list = df_player['name'].unique()
