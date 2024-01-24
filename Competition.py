@@ -4,6 +4,8 @@ import streamlit as st
 import os
 
 st.set_page_config(page_title='Competition', layout='wide')
+st.sidebar.image('photos/logo2.jpg')
+st.image('photos/logo1.jpg')
 
 # Read data from Sheet 
 df = pd.read_excel('Datasets/Africa 2024-.xlsx', sheet_name='data')
