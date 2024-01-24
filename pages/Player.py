@@ -30,19 +30,19 @@ else:
         
 
         
-        exact_true_prediction = select_player[select_player['توقع صحيح'] == 1]
+        exact_true_prediction = select_player[select_player['Total'] == 5]
         exact_true_prediction_result = exact_true_prediction[['Match', 'Prediction', 'Result']]
         exact_true_prediction_result.reset_index(inplace=True, drop=True)
         exact_true_prediction_result.index.name = 'No.'
         exact_true_prediction_result.index = np.arange(1, len(exact_true_prediction_result) + 1)
         
-        true_prediction = select_player[select_player['توقع الفائز'] == 1]
+        true_prediction = select_player[select_player['Total'] == 3]
         true_prediction_result = true_prediction[['Match', 'Prediction', 'Result']]
         true_prediction_result.reset_index(inplace=True, drop=True)
         true_prediction_result.index.name = 'No.'
         true_prediction_result.index = np.arange(1, len(true_prediction_result) + 1)
     
-        false_prediction = select_player[select_player['توقع الفائز'] == 0]
+        false_prediction = select_player[select_player['Total'] == 0]
         false_prediction_result = false_prediction[['Match', 'Prediction', 'Result']]
         false_prediction_result.reset_index(inplace=True, drop=True)
         false_prediction_result.index.name = 'No.'
