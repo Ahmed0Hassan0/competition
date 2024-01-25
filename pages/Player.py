@@ -5,6 +5,8 @@ import numpy as np
 st.set_page_config(page_title='Player statistics', page_icon='📈' ,layout='wide')
 #st.balloons()
 df_player = pd.read_excel('Datasets/Africa 2024-.xlsx', sheet_name='التوقعات')
+player_of_day = pd.read_excel('Datasets/Africa 2024-.xlsx', sheet_name='Player of the day')
+
 df_player = df_player.dropna()
 player_list = df_player['name'].unique()
 players = pd.DataFrame(player_list)
@@ -19,7 +21,35 @@ add_selectbox = st.sidebar.selectbox(
 
 
 if add_selectbox == '':
-    st.subheader('Please select a player ! ');
+    def p_of_day():
+        st.header('The Player of the day ')
+        st.markdown("""
+        <style>
+        .rainbow-divider {
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            height: 2px;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+        st.markdown('<div class="rainbow-divider"></div>', unsafe_allow_html=True)
+        best_player = player_of_day.iloc[0,1]
+        image_path = 'photos/' + best_player + '.jpg'
+        score = player_of_day.iloc[0,2]
+
+        col1, col2, col3 = st.columns(3, gap='large')
+        with col1:
+
+            st.image(image_path, width=200)
+        with col2:
+            st.info(best_player)            
+            st.metric(label=f":red[_Score:_] :blue[_{score}_]", value='')
+        if st.button('بـــاركــوا لأخـــوكوا أبو جبل'):
+            st.balloons()
+            
+ 
+            
+    p_of_day()
 else:
     select_player = df_player[df_player['name'] == add_selectbox]
     player_name = 'Player name: ' + add_selectbox
